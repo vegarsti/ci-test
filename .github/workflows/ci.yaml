@@ -13,7 +13,7 @@ jobs:
       - name: Print Github context
         run: echo '${{ toJSON(github) }}'
       - name: Run this on PRs to main
-        if: ${{ github.base_ref == 'refs/heads/main' && github.ref != 'refs/heads/main' }}
+        if: ${{ github.base_ref == 'main' && github.ref != 'refs/heads/main' }}
         run: echo "PR to main"
       - name: Run this on merges to main
         if: github.ref == 'refs/heads/main'
