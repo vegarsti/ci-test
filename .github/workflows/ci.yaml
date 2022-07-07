@@ -20,5 +20,5 @@ jobs:
         run: echo "Merged to main"
       - name: Print env vars
         env:
-          MY_BRANCH: "${{ github.base_ref == 'main' && github.ref != 'refs/heads/main' && 'dev' || 'prod' }}"
+          MY_BRANCH: "${{ github.base_ref == 'main' && github.ref != 'refs/heads/main' && secrets.DEV_TOKEN || secrets.PROD_TOKEN }}"
         run: echo "${MY_BRANCH}"
