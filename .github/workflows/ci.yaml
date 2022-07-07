@@ -14,5 +14,5 @@ jobs:
         if: ${{ github.base_ref == 'refs/heads/main' && github.ref != 'refs/heads/main' }}
         run: echo "PR to main"
       - name: Run this on merges to main
-        if: {{ github.ref == 'refs/heads/main' }}
+        if: github.ref == 'refs/heads/main'
         run: echo "Merged to main"
