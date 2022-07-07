@@ -1,0 +1,16 @@
+# Run this workflow on all activity on all pull requests, and on a push to the main branch.
+on:
+  pull_request:
+  push:
+    branches:
+      - 'main'
+
+name: Run CI
+jobs:
+  print:
+      - name: Run this on PRs to main
+        if: ${{ github.base_ref == 'refs/heads/main' && github.ref != 'refs/heads/main' }}
+        run: echo "PR to main"
+      - name: Run this on merges to main
+        if: {{ github.ref == 'refs/heads/main' }}
+        run: echo "Merged to main"
