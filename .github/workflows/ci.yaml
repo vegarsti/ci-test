@@ -10,6 +10,8 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
+      - name: Print Github context
+        run: echo '${{ toJSON(github) }}'
       - name: Run this on PRs to main
         if: ${{ github.base_ref == 'refs/heads/main' && github.ref != 'refs/heads/main' }}
         run: echo "PR to main"
