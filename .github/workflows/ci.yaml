@@ -18,3 +18,7 @@ jobs:
       - name: Run this on merges to main
         if: github.ref == 'refs/heads/main'
         run: echo "Merged to main"
+      - name: Print env vars
+        env:
+          MY_BRANCH: "${{ github.base_ref == 'main' && github.ref != 'refs/heads/main' && 'dev' || 'prod' }}"
+        run: echo "${MY_BRANCH}"
